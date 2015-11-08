@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'cobi/twitchbot/bot'
+require 'cobi/twitchbot/modules/ping'
+require 'cobi/twitchbot/modules/log'
+require 'cobi/twitchbot/modules/post_login'
+require 'cobi/twitchbot/modules/command_parser'
+require 'cobi/twitchbot/modules/hello'
+require 'cobi/twitchbot/modules/uptime'
+require 'cobi/twitchbot/credentials'
+
+bot = Cobi::Twitchbot::Bot.new('irc.twitch.tv', 6667, 'cobibot', $irc_password)
+bot.register(Cobi::Twitchbot::Modules::Ping.new)
+bot.register(Cobi::Twitchbot::Modules::Log.new)
+bot.register(Cobi::Twitchbot::Modules::PostLogin.new)
+bot.register(Cobi::Twitchbot::Modules::CommandParser.new)
+bot.register(Cobi::Twitchbot::Modules::Hello.new)
+bot.register(Cobi::Twitchbot::Modules::Uptime.new)
+bot.run
